@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <script src="cytoscape.min.js"></script>
+    <script src="https://unpkg.com/dagre@0.7.4/dist/dagre.js"></script>
+    <script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
+
+    <script src="cytoscape-dagre.js"></script>
+
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function(){
+
+        var cy = window.cy = cytoscape({
+          container: document.getElementById('cy'),
+
+          boxSelectionEnabled: false,
+          autounselectify: true,
+
+          layout: {
+            name: 'dagre'
+          },
+
+
+          style: [
+
+          {
+            selector: 'node[level=1]',
+            style: {
+                'background-color': 'red'
+                
+            }
+             },
+
+            {
+              selector: 'node',
+              style: {
+                'label': 'data(id)',
+				'text-valign': 'center',
+				'color': '#000000',
+                'background-color': '#fffff',
+                'shape': 'data(type)',
+                'height': 40,
+                'width': 40
+              }
+            },
+
+            {
+              selector: 'edge',
+              style: {
+                'width': 2,
+                'target-arrow-shape': 'triangle',
+                'line-color': '#c4c1bc',
+                'target-arrow-color': '#c4c1bc',
+                'curve-style': 'bezier'
+              }
+            }
+          ],
+
+          elements: {
+            nodes: [
+              { data: { id: 'MTH', level: 1 } },
+              { data: { id: 'ABE', type: 'triangle' } },
+              { data: { id: 'MBE', type: 'rectangle' } },
+              { data: { id: 'RBR', type: 'star' } },
+              { data: { id: 'TDR', type: 'heptagon' } },
+              { data: { id: 'FFU' } },
+              { data: { id: 'TGA' } },
+              { data: { id: 'AGE' } },
+              { data: { id: 'TGL' } },
+              { data: { id: 'AGO' } },
+              { data: { id: 'MGÜ' } },
+              { data: { id: 'GIH' } },
+              { data: { id: 'DKI' } },
+              { data: { id: 'RKÖ' } },
+              { data: { id: 'BMA' } },
+              { data: { id: 'OMA' } },
+              { data: { id: 'MKA' } },
+              { data: { id: 'MSC' } },
+              { data: { id: 'TWE' } },
+              { data: { id: 'ABA' } },
+              { data: { id: 'RFÖ' } },
+              { data: { id: 'SHA' } },
+              { data: { id: 'NHA' } },
+              { data: { id: 'BKN' } },
+              { data: { id: 'NKO' } },
+              { data: { id: 'FNI' } },
+              { data: { id: 'LOT' } },
+              { data: { id: 'CSC' } },
+              { data: { id: 'PWU' } },
+              { data: { id: 'JAR' } },
+              { data: { id: 'EHE' } },
+              { data: { id: 'FEB' } },
+              { data: { id: 'FHE' } },
+              { data: { id: 'MJO' } },
+              { data: { id: 'MOR' } },
+              { data: { id: 'CRO' } },
+              { data: { id: 'DSC' } },
+              { data: { id: 'JHA' } },
+              { data: { id: 'AWI' } },
+              { data: { id: 'CBO' } },
+              { data: { id: 'MDÖ' } },
+              { data: { id: 'MGA' } },
+              { data: { id: 'JJU' } },
+              { data: { id: 'JLA' } },
+              { data: { id: 'JCZ' } },
+              { data: { id: 'REX' } },
+              { data: { id: 'EBU' } },
+              { data: { id: 'FKL' } },
+              { data: { id: 'LDE' } },
+              { data: { id: 'GPA' } },
+              { data: { id: 'JEI' } },
+              { data: { id: 'CBO' } },
+              { data: { id: 'CPF' } },
+              { data: { id: 'AST' } },
+              { data: { id: 'LGI' } },
+              { data: { id: 'KGL' } },
+              { data: { id: 'JOR' } },
+              { data: { id: 'OES' } },
+              { data: { id: 'NAB' } },
+              { data: { id: 'CGA' } },
+              { data: { id: 'MBA' } },
+              { data: { id: 'PSP' } },
+              { data: { id: 'AWA' } },
+              { data: { id: 'AKL' } },
+              { data: { id: 'LSC' } },
+              { data: { id: 'MWI' } },
+              { data: { id: 'YAB' } },
+              { data: { id: 'TWI' } },
+              { data: { id: 'DKR' } },
+              { data: { id: 'JMA' } },
+              { data: { id: 'FSC' } },
+              { data: { id: 'LKA' } },
+              { data: { id: 'TSL' } },
+              { data: { id: 'ASO' } },
+              { data: { id: 'DWE' } },
+              { data: { id: 'MRÜ' } },
+              { data: { id: 'BHE' } },
+              { data: { id: 'TSC' } },
+              { data: { id: 'PSC' } },
+              { data: { id: 'OAL' } },
+              { data: { id: 'JHI' } },
+              { data: { id: 'LWE' } },
+              { data: { id: 'OES' } },
+              { data: { id: 'CLI' } },
+              { data: { id: 'GGA' } },
+              { data: { id: 'JSC' } },
+              { data: { id: 'FBÜ' } },
+              { data: { id: 'CHO' } },
+              { data: { id: 'ESC' } },
+              { data: { id: 'MSI' } },
+              { data: { id: 'MST' } },
+              { data: { id: 'SWA' } },
+              { data: { id: 'KMA' } },
+              { data: { id: 'FNG' } },
+              { data: { id: 'PRA' } },
+              { data: { id: 'MSC' } },
+              { data: { id: 'AZA' } },
+              { data: { id: 'KZE' } },
+              { data: { id: 'SAB' } },
+              { data: { id: 'OKO' } },
+              { data: { id: 'AEWI' } },
+              { data: { id: 'OWI' } },
+              { data: { id: 'CTH' } },
+              { data: { id: 'LHI' } },
+              { data: { id: 'DFO' } },
+              { data: { id: 'SYU' } },
+              { data: { id: 'BTR' } },
+              { data: { id: 'PSI' } },
+              { data: { id: 'HFA' } },
+              { data: { id: 'RKA' } },
+              { data: { id: 'RSA' } },
+              { data: { id: 'MTE' } },
+              { data: { id: 'NABB' } },
+              { data: { id: 'MDU' } },
+              { data: { id: 'BKO' } },
+              { data: { id: 'GZA' } },
+              { data: { id: 'RAL' } },
+              { data: { id: 'DOSC' } },
+              { data: { id: 'AEL' } },
+              { data: { id: 'CKA' } },
+              { data: { id: 'TSP' } },
+              { data: { id: 'AVE' } },
+
+            ],
+            edges: [
+              { data: { source: 'MTH', target: 'ABE' } },
+              { data: { source: 'MTH', target: 'MBE' } },
+              { data: { source: 'MTH', target:  'RBR' } },
+              { data: { source: 'MTH', target: 'TDR' } },
+              { data: { source: 'MTH', target: 'FFU' } },
+              { data: { source: 'MTH', target:  'TGA' } },
+              { data: { source: 'MTH', target:  'AGE' } },
+              { data: { source: 'MTH', target:  'TGL' } },
+              { data: { source: 'MTH', target:  'AGO' } },
+              { data: { source: 'MTH', target:  'MGÜ' } },
+              { data: { source: 'MTH', target:  'GIH' } },
+              { data: { source: 'MTH', target:  'DKI' } },
+              { data: { source: 'MTH', target:  'RKÖ' } },
+              { data: { source: 'MTH', target:  'BMA' } },
+              { data: { source: 'MTH', target:  'OMA' } },
+              { data: { source: 'MTH', target:  'MKA' } },
+              { data: { source: 'MTH', target: 'MSC' } },
+              { data: { source: 'MTH', target: 'TWE' } },
+              { data: { source: 'ABA', target: 'RFÖ' } },
+              { data: {  source: 'ABA', target: 'SHA' } },
+              { data: {  source: 'ABA', target: 'NHA' } },
+              { data: {  source: 'ABA', target: 'BKN' } },
+              { data: {  source: 'ABA', target: 'NKO' } },
+              { data: {  source: 'ABA', target: 'FNI' } },
+              { data: {  source: 'ABA', target: 'LOT' } },
+              { data: {  source: 'ABA', target: 'CSC' } },
+              { data: {  source: 'ABA', target: 'PWU' } },
+              { data: {  source: 'JAR', target: 'EHE' } },
+              { data: {  source: 'ABE', target: 'JAR' } },
+              { data: {  source: 'ABE', target: 'FEB' } },
+              { data: {  source: 'ABE', target: 'FHE' } },
+              { data: {  source: 'ABE', target: 'MJO' } },
+              { data: {  source: 'ABE', target: 'MOR' } },
+              { data: {  source: 'ABE', target: 'CRO' } },
+              { data: {  source: 'ABE', target: 'DOSC' } },
+              { data: {  source: 'MBE', target: 'JHA' } },
+              { data: {  source: 'MBE', target: 'AWI' } },
+              { data: {  source: 'CBO', target: 'MDÖ' } },
+              { data: {  source: 'CBO', target: 'MGA' } },
+              { data: {  source: 'CBO', target: 'JJU' } },
+              { data: {  source: 'CBO', target: 'JLA' } },
+              { data: {  source: 'RBR', target: 'JCZ' } },
+              { data: {  source: 'RBR', target: 'REX' } },
+              { data: {  source: 'EBU', target: 'FKL' } },
+              { data: {  source: 'LDE', target: 'GPA' } },
+              { data: {  source: 'MDÖ', target: 'JEI' } },
+              { data: {  source: 'TDR', target: 'CBO' } },
+              { data: {  source: 'TDR', target: 'CPF' } },
+              { data: {  source: 'TDR', target: 'AST' } },
+              { data: {  source: 'FEB', target: 'LGI' } },
+              { data: {  source: 'FEB', target: 'KGL' } },
+              { data: {  source: 'FEB', target: 'JOR' } },
+              { data: {  source: 'OES', target: 'NAB' } },
+              { data: {  source: 'REX', target: 'CGA' } },
+              { data: {  source: 'RFÖ', target: 'MBA' } },
+              { data: {  source: 'RFÖ', target: 'PSP' } },
+              { data: {  source: 'RFÖ', target: 'AWA' } },
+              { data: {  source: 'FFU', target: 'AKL' } },
+              { data: {  source: 'FFU', target: 'LSC' } },
+              { data: {  source: 'FFU', target: 'MWI' } },
+              { data: {  source: 'MGA', target: 'YAB' } },
+              { data: {  source: 'CGA', target: 'TWI' } },
+              { data: {  source: 'TGA', target: 'DKR' } },
+              { data: {  source: 'TGA', target: 'JMA' } },
+              { data: {  source: 'TGA', target: 'FSC' } },
+              { data: {  source: 'AGE', target: 'LKA' } },
+              { data: {  source: 'AGE', target: 'TSL' } },
+              { data: {  source: 'AGE', target: 'ASO' } },
+              { data: {  source: 'AGE', target: 'DWE' } },
+              { data: {  source: 'LGI', target: 'MRÜ' } },
+              { data: {  source: 'TGL', target: 'BHE' } },
+              { data: {  source: 'TGL', target: 'TSC' } },
+              { data: {  source: 'TGL', target: 'PSC' } },
+              { data: {  source: 'AGO', target: 'OAL' } },
+              { data: {  source: 'AGO', target: 'JHI' } },
+              { data: {  source: 'NHA', target: 'LWE' } },
+              { data: {  source: 'JHA', target: 'OES' } },
+              { data: {  source: 'JHA', target: 'CLI' } },
+              { data: {  source: 'BHE', target: 'EBU' } },
+              { data: {  source: 'BHE', target: 'LDE' } },
+              { data: {  source: 'BHE', target: 'GGA' } },
+              { data: {  source: 'BHE', target: 'JSC' } },
+              { data: {  source: 'GIH', target: 'FBÜ' } },
+              { data: {  source: 'GIH', target: 'CHO' } },
+              { data: {  source: 'GIH', target: 'ESC' } },
+              { data: {  source: 'GIH', target: 'MSI' } },
+              { data: {  source: 'GIH', target: 'MST' } },
+              { data: {  source: 'MJO', target: 'SWA' } },
+              { data: {  source: 'JJU', target: 'KMA' } },
+              { data: {  source: 'JJU', target: 'FNG' } },
+              { data: {  source: 'JJU', target: 'PRA' } },
+              { data: {  source: 'DKI', target: 'MSC' } },
+              { data: {  source: 'BKN', target: 'AZA' } },
+              { data: {  source: 'BKN', target: 'KZE' } },
+              { data: {  source: 'JLA', target: 'SAB' } },
+              { data: {  source: 'JLA', target: 'OKO' } },
+              { data: {  source: 'OMA', target: 'OWI' } },
+              { data: {  source: 'OMA', target: 'AEWI' } },
+              { data: {  source: 'LOT', target: 'CTH' } },
+              { data: {  source: 'CPF', target: 'LHI' } },
+              { data: {  source: 'CPF', target: 'DFO' } },
+              { data: {  source: 'CRO', target: 'SYU' } },
+              { data: {  source: 'MSC', target: 'BTR' } },
+              { data: {  source: 'MSC', target: 'PSI' } },
+              { data: {  source: 'DSC', target: 'HFA' } },
+              { data: {  source: 'TSC', target: 'RKA' } },
+              { data: {  source: 'TSC', target: 'RSA' } },
+              { data: {  source: 'TSC', target: 'MTE' } },
+              { data: {  source: 'FSC', target: 'NABB' } },
+              { data: {  source: 'FSC', target: 'MDU' } },
+              { data: {  source: 'FSC', target: 'BKO' } },
+              { data: {  source: 'FSC', target: 'GZA' } },
+              { data: {  source: 'TSL', target: 'RAL' } },
+              { data: {  source: 'ASO', target: 'DSC' } },
+              { data: {  source: 'AST', target: 'AEL' } },
+              { data: {  source: 'OWI', target: 'CKA' } },
+              { data: {  source: 'OWI', target: 'TSP' } },
+              { data: {  source: 'OWI', target: 'AVE' } },
+
+            ]
+          }
+          
+        });
+
+      });
+    </script>
+  </head>
+
+
+<body>
+    <div id="cy"></div>
+<div>
+<h1>op Paten</h1>
+</div>
+</body>
+
+</html>
