@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/dagre@0.7.4/dist/dagre.js"></script>
     <script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
-
+    <script src="cytoscape-cola.js"></script>
     <script src="cytoscape-dagre.js"></script>
 
 
@@ -31,8 +31,13 @@
           {
             selector: 'node[level=1]',
             style: {
-                'background-color': 'red'
-                
+                'background-color': '#FAD8D8'               
+            }
+             },
+             {
+            selector: 'node[level=2]',
+            style: {
+                'background-color': '#B6D0EB'               
             }
              },
 
@@ -40,14 +45,20 @@
               selector: 'node',
               style: {
                 'label': 'data(id)',
-				'text-valign': 'center',
-				'color': '#000000',
-                'background-color': '#fffff',
+				       'text-valign': 'center',
+				       'color': '#000000',
                 'shape': 'data(type)',
-                'height': 40,
-                'width': 40
+                'height': 60,
+                'width': 60
               }
             },
+
+            {
+            selector: 'node:parent',
+            css: {
+              'background-opacity': 0.333
+            }
+          },
 
             {
               selector: 'edge',
@@ -62,36 +73,37 @@
           ],
 
           elements: {
-            nodes: [
-              { data: { id: 'MTH', level: 1 } },
-              { data: { id: 'ABE', type: 'triangle' } },
-              { data: { id: 'MBE', type: 'rectangle' } },
-              { data: { id: 'RBR', type: 'star' } },
-              { data: { id: 'TDR', type: 'heptagon' } },
-              { data: { id: 'FFU' } },
-              { data: { id: 'TGA' } },
-              { data: { id: 'AGE' } },
-              { data: { id: 'TGL' } },
-              { data: { id: 'AGO' } },
-              { data: { id: 'MGÜ' } },
-              { data: { id: 'GIH' } },
-              { data: { id: 'DKI' } },
-              { data: { id: 'RKÖ' } },
-              { data: { id: 'BMA' } },
-              { data: { id: 'OMA' } },
-              { data: { id: 'MKA' } },
-              { data: { id: 'MSC' } },
-              { data: { id: 'TWE' } },
-              { data: { id: 'ABA' } },
-              { data: { id: 'RFÖ' } },
-              { data: { id: 'SHA' } },
-              { data: { id: 'NHA' } },
-              { data: { id: 'BKN' } },
-              { data: { id: 'NKO' } },
-              { data: { id: 'FNI' } },
-              { data: { id: 'LOT' } },
-              { data: { id: 'CSC' } },
-              { data: { id: 'PWU' } },
+
+              nodes: [
+              { data: { id: 'MTH', level: 1 , parent: 'n5' } },
+              { data: { id: 'ABE', level: 2 , type: 'triangle' } },
+              { data: { id: 'MBE' , level: 2, type: 'rectangle' } },
+              { data: { id: 'RBR', level: 2 , type: 'star' } },
+              { data: { id: 'TDR', level: 2 , type: 'heptagon' } },
+              { data: { id: 'FFU' , level: 2 } },
+              { data: { id: 'TGA' , level: 2 } },
+              { data: { id: 'AGE' , level: 2} },
+              { data: { id: 'TGL' , level: 2} },
+              { data: { id: 'AGO', level: 2 } },
+              { data: { id: 'MGÜ', level: 2 } },
+              { data: { id: 'GIH', level: 2 } },
+              { data: { id: 'DKI', level: 2 } },
+              { data: { id: 'RKÖ', level: 2 } },
+              { data: { id: 'BMA', level: 2 } },
+              { data: { id: 'OMA', level: 2 , type: 'star'} },
+              { data: { id: 'MKA', level: 2 } },
+              { data: { id: 'MSC', level: 2 , type: 'star'} },
+              { data: { id: 'TWE', level: 2 } },
+              { data: { id: 'ABA',  level: 1  } },
+              { data: { id: 'RFÖ', level: 2 } },
+              { data: { id: 'SHA', level: 2} },
+              { data: { id: 'NHA' , level: 2 , type: 'star'} },
+              { data: { id: 'BKN', level: 2 } },
+              { data: { id: 'NKO', level: 2 } },
+              { data: { id: 'FNI', level: 2 } },
+              { data: { id: 'LOT', level: 2 } },
+              { data: { id: 'CSC' , level: 2} },
+              { data: { id: 'PWU', level: 2 } },
               { data: { id: 'JAR' } },
               { data: { id: 'EHE' } },
               { data: { id: 'FEB' } },
@@ -158,7 +170,7 @@
               { data: { id: 'KMA' } },
               { data: { id: 'FNG' } },
               { data: { id: 'PRA' } },
-              { data: { id: 'MSC' } },
+              { data: { id: 'MASC' } },
               { data: { id: 'AZA' } },
               { data: { id: 'KZE' } },
               { data: { id: 'SAB' } },
@@ -279,7 +291,7 @@
               { data: {  source: 'JJU', target: 'KMA' } },
               { data: {  source: 'JJU', target: 'FNG' } },
               { data: {  source: 'JJU', target: 'PRA' } },
-              { data: {  source: 'DKI', target: 'MSC' } },
+              { data: {  source: 'DKI', target: 'MASC' } },
               { data: {  source: 'BKN', target: 'AZA' } },
               { data: {  source: 'BKN', target: 'KZE' } },
               { data: {  source: 'JLA', target: 'SAB' } },
